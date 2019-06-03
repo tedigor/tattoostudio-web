@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div class="page-header">
+    <h3>Pesquisar Consultas</h3>
+  </div>
+
+  <app-card-container>
+    <form [formGroup]="formPesquisa">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="">Medico</label>
+          <select formControlName="medico" class="form-control">
+            <option *ngFor="let medico of medicosSelect" [ngValue]="medico.id">{{medico.nome}}</option>
+          </select>
+        </div>
+        <div class="col-md-3 form-group">
+          <label for="">Data</label>
+          <input type="text" class="form-control" formControlName="data">
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-end">
+        <button class="btn btn-padrao mr-2" type="button" routerLink="../cadastrar">Nova Consulta</button>
+        <button class="btn btn-primario" type="button" (click)="executarPesquisa()">Pesquisar</button>
+      </div>
+    </div>
+  </app-card-container>
+</div>

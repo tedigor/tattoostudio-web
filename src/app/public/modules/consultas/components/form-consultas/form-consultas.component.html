@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="page-header">
+    <h3>Consulta</h3>
+  </div>
+
+  <app-card-container>
+    <form [formGroup]="formConsulta">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="">Medico</label>
+          <select formControlName="medico" class="form-control">
+            <option *ngFor="let medico of medicosSelect" [ngValue]="medico.id">{{medico.nome}}</option>
+          </select>
+        </div>
+        <div class="col-md-3 form-group">
+          <label for="">Data</label>
+          <input type="text" class="form-control" formControlName="data">
+        </div>
+        <div class="col-md-3 form-group">
+          <label for="">Hora</label>
+          <input type="text" class="form-control" formControlName="hora">
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-end">
+        <button class="btn btn-padrao mr-2" type="button" routerLink="../pesquisar">Cancelar</button>
+        <button class="btn btn-primario" type="button" (click)="salvarConsulta()">Salvar</button>
+      </div>
+    </div>
+  </app-card-container>
+</div>

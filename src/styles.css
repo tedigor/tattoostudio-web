@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+.app-style {
+    background-color: #ecf0f1;
+}
+
+.btn-primario {
+    color: #fff;
+    background-color: #e74246;
+    border-color: #d63c3e;
+    text-transform: none;
+}
+
+.btn-primario:hover {
+    color: #fff;
+    background-color: #a82f31;
+    border-color: #a82f31;
+}
+
+.btn-padrao {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    text-transform: none;
+}
+
+.btn-padrao:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.page-header {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+#toast-container > div {
+    opacity:1;
+}
