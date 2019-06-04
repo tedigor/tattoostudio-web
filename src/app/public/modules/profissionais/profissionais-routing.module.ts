@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { FormMedicosComponent } from './components/form-medicos/form-medicos.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormProfissionaisComponent } from './components/form-profissionais/form-profissionais.component';
 
 const routes: Routes = [
   {
@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'cadastrar',
-    component: FormMedicosComponent
+    component: FormProfissionaisComponent
   },
   {
     path: ':id/editar',
-    component: FormMedicosComponent
+    component: FormProfissionaisComponent
   }
 ];
 

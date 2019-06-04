@@ -8,8 +8,8 @@ const routes: Routes = [
     component: TelaInicialComponent
   },
   {
-    path: 'medicos',
-    loadChildren: './modules/medicos/medicos.module#MedicosModule'
+    path: 'profissionais',
+    loadChildren: './modules/profissionais/profissionais.module#ProfissionaisModule'
   },
   {
     path: 'consultas',
