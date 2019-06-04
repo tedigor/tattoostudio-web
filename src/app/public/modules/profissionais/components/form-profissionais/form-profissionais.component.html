@@ -15,13 +15,16 @@
         </div>
         <div class="col-md-6 form-group">
           <label for="">Especialidade</label>
-          <input type="text" class="form-control" formControlName="especialidade">
+          <select formControlName="especialidade" class="form-control">
+              <option>Tatuador</option>
+              <option>Body Piercing</option>
+            </select>
         </div>
       </div>
     </form>
     <div class="row">
       <div class="col-md-12 d-flex justify-content-end">
-        <button class="btn btn-padrao mr-2" type="button">Cancelar</button>
+        <button class="btn btn-padrao mr-2" type="button" (click)="cancelarCadastro()">Cancelar</button>
         <button class="btn btn-primario" type="button" (click)="salvarProfissional()">Salvar</button>
       </div>
 

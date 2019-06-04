@@ -32,18 +32,28 @@ export class FormProfissionaisComponent implements OnInit {
   salvarProfissional() {
     this.profissionalService.salvarProfissional(this.montarProfissional()).
       subscribe(
-        (res) => {
+        () => {
           this.toastrService.success("Cadastrado com sucesso!");
+          this.ngOnInit();
         }
       );
   }
 
-  montarProfissional() {
+  montarProfissional(): Profissional {
     const profissional: Profissional = {
-      nome: this.formProfissional.get('nome'). value,
-      especialidade: this.formProfissional.get('especialidade').value
+      nome: this.formProfissional.get('nome').value,
+      especialidade: this.formatarEspecialidade()
     };
     return profissional;
+  }
+
+  formatarEspecialidade() : string {
+    const valor = this.formProfissional.get('especialidade').value;
+    return valor === "Tatuador"? "TATUADOR" : "BODY_PIERCING"; 
+  }
+
+  cancelarCadastro() {
+    return this.ngOnInit();
   }
 
 }

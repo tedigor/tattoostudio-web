@@ -8,10 +8,10 @@ const API = "http://localhost:8080/"
 @Injectable()
 export class ProfissionalService {
 
-  constructor(private httpCliente: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   salvarProfissional(profissional: Profissional): Observable<Profissional> {
     
-    return this.httpCliente.post<Profissional>(`${API}profissionais`, profissional);
+    return this.httpClient.post<Profissional>(`${API}profissionais`, profissional);
   }
 }

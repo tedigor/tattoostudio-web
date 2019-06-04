@@ -7,6 +7,8 @@ import { SharedComponentsModule } from './shared/shared-components/shared-compon
 import { PublicModule } from './public/public.module';
 import { CoreModule } from './core/core.module';
 import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     SharedComponentsModule,
     PublicModule,
     CoreModule.forRoot(),
