@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { PesquisarConsultasComponent } from './components/pesquisar-consultas/pesquisar-consultas.component';
-import { FormConsultasComponent } from './components/form-consultas/form-consultas.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormAgendamentosComponent } from './components/form-agendamentos/form-agendamentos.component';
+import { PesquisarAgendamentosComponent } from './components/pesquisar-agendamentos/pesquisar-agendamentos.component';
 
 const routes: Routes = [
   {
@@ -11,15 +11,15 @@ const routes: Routes = [
   },
   {
     path: 'pesquisar',
-    component: PesquisarConsultasComponent
+    component: PesquisarAgendamentosComponent
   },
   {
     path: 'cadastrar',
-    component: FormConsultasComponent
+    component: FormAgendamentosComponent
   },
   {
     path: ':id/editar',
-    component: FormConsultasComponent
+    component: FormAgendamentosComponent
   }
 ];
 

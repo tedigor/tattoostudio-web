@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ConsultasRoutingModule } from './consultas-routing.module';
-import { PesquisarConsultasComponent } from './components/pesquisar-consultas/pesquisar-consultas.component';
-import { FormConsultasComponent } from './components/form-consultas/form-consultas.component';
-import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ConsultasService } from './services/consultas.service';
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { FormAgendamentosComponent } from './components/form-agendamentos/form-agendamentos.component';
+import { PesquisarAgendamentosComponent } from './components/pesquisar-agendamentos/pesquisar-agendamentos.component';
+import { ConsultasRoutingModule } from './consultas-routing.module';
+import { AgendamentosService } from './services/agendamentos.service';
+
 
 @NgModule({
   declarations: [
-    PesquisarConsultasComponent,
-    FormConsultasComponent
+    PesquisarAgendamentosComponent,
+    FormAgendamentosComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +21,7 @@ import { ConsultasService } from './services/consultas.service';
     ReactiveFormsModule
   ],
   providers: [
-    ConsultasService
+    AgendamentosService
   ]
 })
 export class ConsultasModule { }

@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 const API = "http://localhost:8080/"
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ProfissionalService {
 
   constructor(private httpClient: HttpClient) { }

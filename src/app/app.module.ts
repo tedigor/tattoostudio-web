@@ -1,13 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedComponentsModule } from './shared/shared-components/shared-components.module';
-import { PublicModule } from './public/public.module';
 import { CoreModule } from './core/core.module';
-import { ToastrModule } from 'ngx-toastr';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PublicModule } from './public/public.module';
+import { SharedComponentsModule } from './shared/shared-components/shared-components.module';
 
 
 @NgModule({
@@ -19,6 +21,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedComponentsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    HttpClientModule,
     PublicModule,
     CoreModule.forRoot(),
     ToastrModule.forRoot({
@@ -28,6 +33,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     })
   ],
   providers: [],
+  exports: [
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

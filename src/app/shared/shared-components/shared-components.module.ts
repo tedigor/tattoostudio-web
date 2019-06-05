@@ -6,6 +6,7 @@ import { PaginacaoComponent } from './paginacao/paginacao.component';
 import { CardContainerComponent } from './card-container/card-container.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PaginationModule.forRoot(),
     FormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
     NavbarComponent,
     PaginacaoComponent,
-    CardContainerComponent
+    CardContainerComponent,
+    HttpClientModule
   ]
 })
 export class SharedComponentsModule { }

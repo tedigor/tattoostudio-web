@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div class="page-header">
+    <h3>Agendamento</h3>
+  </div>
+  <app-card-container>
+    <h5>Dados do Agendamento</h5>
+    <form [formGroup]="formAgendamento">
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="">Profissional</label>
+          <select formControlName="profissional" class="form-control">
+            <option *ngFor="let profissional of profissionalSelect" [ngValue]="profissional.id">{{profissional.nome}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="">Cliente</label>
+          <select formControlName="cliente" class="form-control">
+            <option *ngFor="let cliente of clientesCadastrados" [ngValue]="cliente.id">{{cliente.nome}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label for="">Data</label>
+          <input type="date" class="form-control" formControlName="data">
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="">Hora</label>
+          <input type="time" class="form-control" formControlName="hora">
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="">Serviço</label>
+          <select formControlName="servico" class="form-control">
+            <option>Tatuagem</option>
+            <option>Piercing</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </app-card-container>
+  <br>
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-end">
+      <button class="btn btn-padrao mr-2" type="button" routerLink="../pesquisar">Cancelar</button>
+      <button class="btn btn-primario" type="button" (click)="salvarAgendamento()">Salvar</button>
+    </div>
+  </div>
+</div>
