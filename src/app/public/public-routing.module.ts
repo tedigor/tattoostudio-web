@@ -12,8 +12,8 @@ const routes: Routes = [
     loadChildren: './modules/profissionais/profissionais.module#ProfissionaisModule'
   },
   {
-    path: 'consultas',
-    loadChildren: './modules/consultas/consultas.module#ConsultasModule'
+    path: 'agendamentos',
+    loadChildren: './modules/consultas/agendamentos.module#AgendamentosModule'
   }
 ];
 

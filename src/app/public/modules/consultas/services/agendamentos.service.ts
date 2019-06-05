@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Profissional } from '../../profissionais/models/profissional.models';
@@ -29,5 +29,15 @@ export class AgendamentosService {
 
   salvarAgendamento(agendamento: Agendamento) : Observable<Agendamento> {
     return this.httpClient.post<Agendamento>(`${API}agendamentos`, agendamento);
+  }
+
+  getAgendamentos(): Observable<Agendamento[]> {
+    return this.httpClient.get<Agendamento[]>(`${API}agendamentos`);
+  }
+
+  getQuery(nome?: string, horario: string = null): Observable<Agendamento[]> {
+    const params = new HttpParams().append('nomeProfissional', nome).append('horarioAgendamento', horario);
+
+    return this.httpClient.get<Agendamento[]>(`${API}agendamentos/query`, {params: params});
   }
 }

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo:  'consultas',
+    redirectTo:  'agendamentos',
     pathMatch: 'full'
   }
 ];

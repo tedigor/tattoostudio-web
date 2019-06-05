@@ -7,25 +7,28 @@ import { CardContainerComponent } from './card-container/card-container.componen
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientesPipe } from '../pipe/clientes.pipe';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     PaginacaoComponent,
-    CardContainerComponent
+    CardContainerComponent,
+    ClientesPipe
   ],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     NavbarComponent,
     PaginacaoComponent,
     CardContainerComponent,
-    HttpClientModule
+    HttpClientModule,
+    ClientesPipe
   ]
 })
 export class SharedComponentsModule { }

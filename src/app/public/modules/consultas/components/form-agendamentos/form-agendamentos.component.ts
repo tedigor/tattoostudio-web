@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { DateUtil } from 'src/app/shared/date-util/date-util';
 import { Profissional } from '../../../profissionais/models/profissional.models';
+import { Agendamento } from '../../models/agendamento.model';
 import { Cliente } from '../../models/cliente.model';
 import { AgendamentosService } from '../../services/agendamentos.service';
-import { Agendamento } from '../../models/agendamento.model';
-import { DateUtil } from 'src/app/shared/date-util/date-util';
-import { ToastrService } from 'ngx-toastr';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-form-agendamentos',

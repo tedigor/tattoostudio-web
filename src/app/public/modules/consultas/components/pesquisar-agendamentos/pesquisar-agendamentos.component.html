@@ -1,29 +1,48 @@
 <div class="container">
 
   <div class="page-header">
-    <h3>Pesquisar Consultas</h3>
+    <h3>Pesquisar Agendamentos</h3>
   </div>
 
   <app-card-container>
     <form [formGroup]="formPesquisa">
       <div class="row">
         <div class="col-md-6 form-group">
-          <label for="">Medico</label>
-          <select formControlName="medico" class="form-control">
-            <option *ngFor="let medico of medicosSelect" [ngValue]="medico.id">{{medico.nome}}</option>
+          <label for="">Profissional</label>
+          <select formControlName="profissional" class="form-control">
+            <option *ngFor="let profissional of profissionalSelect" [ngValue]="profissional.nome">{{profissional.nome}}
+            </option>
           </select>
         </div>
         <div class="col-md-3 form-group">
           <label for="">Data</label>
-          <input type="text" class="form-control" formControlName="data">
+          <input type="date" class="form-control" formControlName="data">
         </div>
       </div>
     </form>
     <div class="row">
       <div class="col-md-12 d-flex justify-content-end">
-        <button class="btn btn-padrao mr-2" type="button" routerLink="../cadastrar">Nova Consulta</button>
+        <button class="btn btn-padrao mr-2" type="button" (click)="limparTela()">Limpar</button>
+        <button class="btn btn-padrao mr-2" type="button" routerLink="../cadastrar">Agendar</button>
         <button class="btn btn-primario" type="button" (click)="executarPesquisa()">Pesquisar</button>
       </div>
     </div>
   </app-card-container>
+  <br>
+  <table class="table table-light table-hover table-bordered text-center">
+      <thead>
+        <tr>
+          <th scope="col">Profissional</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">Horário</th>
+        </tr>
+      </thead>
+      <tbody *ngIf='agendamentosList?.length'>
+        <tr *ngFor='let agendamento of agendamentosList' >
+          <td>{{agendamento.profissional.nome}}</td>
+          <td>{{agendamento.idCliente | clientes}}</td>
+          <td>{{agendamento.horario | date: 'dd/MM/yyyy hh:MM'}}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>

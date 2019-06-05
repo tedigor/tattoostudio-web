@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Profissional } from '../../../profissionais/models/profissional.models';
 import { Agendamento } from '../../models/agendamento.model';
 import { AgendamentosService } from '../../services/agendamentos.service';
 
@@ -11,8 +12,8 @@ import { AgendamentosService } from '../../services/agendamentos.service';
 export class PesquisarAgendamentosComponent implements OnInit {
 
   formPesquisa: FormGroup;
-  agendamentos: Array<Agendamento>;
-
+  agendamentosList: Array<Agendamento>;
+  profissionalSelect: Profissional[];
   constructor(
     private fb: FormBuilder,
     private agendamentosService: AgendamentosService
@@ -20,22 +21,38 @@ export class PesquisarAgendamentosComponent implements OnInit {
 
   ngOnInit() {
     this.criarForm();
+    this.getProfissionalSelect();
   }
+  
 
   criarForm() {
     this.formPesquisa = this.fb.group({
-      medico: null,
-      data: null
+      profissional: [null, Validators.required],
+      data: [null, Validators.required]
     });
   }
 
-  executarPesquisa() {
-    // this.agendamentosService.getProfissionais().
-    //   subscribe(
-    //     (res) => {
-    //       this.agendamentos = res;
-    //     }
-    //   );
+
+  getAgendamentosList() {
+    this.agendamentosService.getQuery(this.formPesquisa.get('profissional').value, this.formPesquisa.get('data').value).subscribe(response => {
+      this.agendamentosList = response;
+      console.log(this.agendamentosList);
+    })
   }
 
+  getProfissionalSelect() {
+    this.agendamentosService.getProfissionais().subscribe(response => {
+      this.profissionalSelect = response;
+    });
+  }
+
+  
+  executarPesquisa() {
+    this.getAgendamentosList();
+  }
+
+  limparTela() {
+    this.agendamentosList = [];
+    this.ngOnInit();
+  }
 }
